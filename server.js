@@ -1,12 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const cors = require('cors')
-
+const cors = require('cors');
 
 const app = express();
-app.use(bodyParser.json());
-app.use(cors())
 
 const database = {
   users: [
@@ -33,6 +30,9 @@ const database = {
     email: 'john@gmail.com'
   }
 };
+
+app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send(database.users);
